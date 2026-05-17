@@ -1,48 +1,75 @@
-Plateforme d’Audit Automatisé Mobile basée sur OWASP MASVS / MASTG et Intelligence Artificielle "MobAuditFlow"
-==============================================================================================================
+ README - MobAuditFlow
+
+Plateforme d’Audit Automatisé Mobile basée sur OWASP MASVS / MASTG et Intelligence Artificielle
+===============================================================================================
+
+MobAuditFlow
+------------
+
+* * *
+
+![MobAuditFlow Banner](./docs/screenshots/overview-banner.png)
 
 * * *
 
 1\. Présentation Générale du Projet
 -----------------------------------
 
-Ce projet consiste en la conception et le développement d’une plateforme intelligente d’automatisation des audits de sécurité des applications mobiles Android en s’appuyant sur les standards OWASP MASVS (Mobile Application Security Verification Standard) et MASTG (Mobile Application Security Testing Guide).
+MobAuditFlow est une plateforme intelligente d’automatisation des audits de sécurité des applications mobiles Android.
 
-L’objectif principal du projet est de réduire la charge de travail manuelle des auditeurs sécurité en automatisant plusieurs tâches complexes telles que :
+La plateforme combine plusieurs technologies modernes afin de transformer des résultats techniques bruts en rapports de sécurité contextualisés et exploitables.
 
-*   L’analyse statique d’APK Android ;
-*   La corrélation automatique des vulnérabilités ;
-*   Le mapping automatique vers les contrôles MASVS ;
-*   L’enrichissement des résultats à l’aide de modèles d’Intelligence Artificielle ;
-*   La génération automatique de rapports professionnels PDF ;
-*   L’orchestration complète du pipeline via n8n ;
-*   L’utilisation de modèles IA locaux afin de préserver la confidentialité des analyses.
+Le système repose principalement sur :
 
-La plateforme agit comme un véritable système d’orchestration de cybersécurité capable de transformer des résultats techniques bruts provenant d’outils comme MobSF en rapports d’audit structurés, contextualisés et exploitables.
+*   OWASP MASVS ;
+*   OWASP MASTG ;
+*   MobSF ;
+*   n8n ;
+*   Ollama ;
+*   Gemini API ;
+*   ChromaDB ;
+*   Docker ;
+*   Gotenberg.
+
+L’objectif principal du projet est d’automatiser les tâches répétitives des audits de sécurité mobile.
+
+La plateforme agit comme un pipeline intelligent capable de :
+
+*   Analyser des APK Android ;
+*   Interpréter les résultats MobSF ;
+*   Effectuer un mapping MASVS ;
+*   Générer automatiquement des recommandations ;
+*   Produire des rapports PDF professionnels ;
+*   Envoyer automatiquement les rapports.
 
 * * *
 
-2\. Contexte et Motivation du Projet
-------------------------------------
+2\. Contexte du Projet
+----------------------
 
-Les audits de sécurité mobiles sont généralement longs, répétitifs et nécessitent une expertise avancée en reverse engineering Android, analyse statique, analyse réseau et validation de conformité OWASP.
+Les audits de sécurité mobiles sont généralement longs et complexes.
 
-Dans un contexte académique et professionnel, plusieurs problèmes apparaissent :
+Les auditeurs doivent analyser manuellement :
 
-*   Temps élevé nécessaire pour analyser les résultats de MobSF ;
-*   Difficulté de mapper manuellement les findings vers MASVS ;
-*   Présence importante de faux positifs ;
-*   Production manuelle des rapports techniques ;
-*   Manque d’automatisation dans les workflows de sécurité mobile.
+*   Le manifest Android ;
+*   Les permissions ;
+*   Les endpoints réseau ;
+*   Les certificats ;
+*   Le code Java/Kotlin ;
+*   Les bibliothèques natives ;
+*   Les mécanismes anti-debug ;
+*   Les systèmes anti-root ;
+*   Les configurations de sécurité.
 
-Ce projet répond directement à ces limitations en proposant une architecture intelligente combinant :
+Cette charge de travail est souvent répétitive et chronophage.
 
-*   Automatisation ;
-*   Intelligence Artificielle ;
-*   RAG (Retrieval-Augmented Generation) ;
-*   Orchestration low-code ;
-*   Analyse de sécurité mobile ;
-*   Génération documentaire automatisée.
+MobAuditFlow a été conçu afin de réduire cette charge grâce à :
+
+*   L’automatisation ;
+*   L’intelligence artificielle ;
+*   Le RAG ;
+*   Les workflows low-code ;
+*   L’orchestration distribuée.
 
 * * *
 
@@ -51,196 +78,296 @@ Ce projet répond directement à ces limitations en proposant une architecture i
 
 ### 3.1 Objectifs Fonctionnels
 
-*   Recevoir automatiquement des fichiers JSON provenant de MobSF ;
-*   Analyser automatiquement les vulnérabilités détectées ;
-*   Interroger une base de connaissances MASVS/MASTG ;
-*   Produire des recommandations de remédiation ;
-*   Prioriser les vulnérabilités ;
-*   Générer un rapport PDF complet ;
-*   Envoyer automatiquement le rapport par email.
+*   Réception automatique des fichiers JSON MobSF ;
+*   Analyse automatique des findings ;
+*   Classification MASVS ;
+*   Réduction des faux positifs ;
+*   Génération des recommandations ;
+*   Génération automatique des rapports ;
+*   Envoi automatique par email.
 
 ### 3.2 Objectifs Techniques
 
-*   Concevoir un workflow distribué multi-agents ;
-*   Utiliser n8n comme moteur d’orchestration ;
-*   Intégrer des modèles IA locaux via Ollama ;
-*   Créer un pipeline RAG basé sur ChromaDB ;
-*   Permettre la scalabilité de la plateforme ;
-*   Réduire la dépendance aux APIs cloud.
+*   Architecture distribuée ;
+*   Pipeline IA multi-agents ;
+*   IA locale via Ollama ;
+*   Architecture RAG ;
+*   Scalabilité ;
+*   Isolation Docker ;
+*   Automatisation complète.
 
 * * *
 
-4\. Architecture Générale du Projet
------------------------------------
+4\. Architecture Générale
+-------------------------
 
-L’architecture du projet suit un modèle modulaire et distribué dans lequel chaque composant possède une responsabilité précise.
+L’architecture suit un modèle modulaire.
 
-Le moteur central du système est n8n, qui agit comme orchestrateur principal des traitements.
+Chaque composant possède une responsabilité spécifique.
 
-### 4.1 Vue Générale de l’Architecture
+![Architecture Générale](./docs/screenshots/general-architecture.png)
 
-\[EMPLACEMENT SCREENSHOT — Architecture Générale du Projet\]
+Figure 1 — Architecture générale de la plateforme MobAuditFlow.
 
-  
-  
-  
-  
-  
+* * *
 
-### 4.2 Description des Composants
+5\. Description des Composants
+------------------------------
 
 Composant
 
-Rôle
+Description
 
 MobSF
 
-Analyse statique et dynamique des APK Android
+Analyse statique et dynamique des APK Android.
 
 n8n
 
-Orchestration des workflows
+Orchestration complète des workflows.
 
 Ollama
 
-Exécution locale des modèles IA
+Exécution locale des modèles IA.
 
 Gemini API
 
-Analyse IA distante et contextualisation
+Analyse IA distante.
 
 ChromaDB
 
-Base vectorielle pour le RAG
-
-Gotenberg
-
-Conversion HTML vers PDF
+Base vectorielle utilisée pour le RAG.
 
 Docker
 
-Conteneurisation des services
+Conteneurisation des services.
+
+Gotenberg
+
+Conversion HTML vers PDF.
 
 Google Drive
 
-Point d’entrée des scans et fichiers
+Point d’entrée des analyses.
 
 * * *
 
-5\. Architecture du Workflow n8n
---------------------------------
+6\. Workflow Global du Système
+------------------------------
+
+APK Upload
+↓
+MobSF Analysis
+↓
+JSON Export
+↓
+Google Drive Trigger
+↓
+n8n Workflow
+↓
+JavaScript Parsing
+↓
+AI Multi-Agents
+↓
+RAG MASVS Lookup
+↓
+Merge Results
+↓
+HTML Report
+↓
+PDF Conversion
+↓
+Email Delivery
+
+* * *
+
+7\. Workflow Principal n8n
+--------------------------
 
 Le workflow n8n constitue le cerveau opérationnel de la plateforme.
 
-Il orchestre toutes les étapes depuis l’ingestion des données jusqu’à la génération finale du rapport.
+![Workflow Principal](./docs/screenshots/n8n-main-workflow.png)
 
-### 5.1 Workflow Principal
+Figure 2 — Workflow principal n8n.
 
-\[EMPLACEMENT SCREENSHOT — Workflow n8n Complet\]
+* * *
 
-  
-  
-  
-  
-  
+8\. Déclenchement Automatique via Google Drive
+----------------------------------------------
 
-### 5.2 Déclenchement Automatique
+Le workflow démarre automatiquement lorsqu’un nouveau fichier JSON MobSF est détecté.
 
-Le workflow démarre automatiquement lorsqu’un fichier JSON issu de MobSF est ajouté dans Google Drive.
+![Drive Trigger](./docs/screenshots/n8n-drive-trigger.png)
 
-Le système télécharge automatiquement le fichier puis l’envoie dans la chaîne de traitement.
+Figure 3 — Déclencheur Google Drive.
 
-### 5.3 Parsing et Nettoyage des Données
+* * *
 
-Un nœud JavaScript spécialisé est utilisé afin de :
+9\. Parsing et Nettoyage des Données
+------------------------------------
 
-*   Filtrer les findings inutiles ;
-*   Supprimer les doublons ;
-*   Réduire le bruit ;
-*   Uniformiser les structures JSON ;
-*   Préparer les données pour les agents IA.
+Un nœud JavaScript spécialisé permet :
 
-### 5.4 Architecture Multi-Agents
+*   La suppression des doublons ;
+*   Le filtrage des findings ;
+*   La réduction du bruit ;
+*   La normalisation JSON ;
+*   La préparation des prompts IA.
 
-La plateforme utilise plusieurs agents IA spécialisés fonctionnant en parallèle.
+![JS Parser](./docs/screenshots/n8n-js-parser.png)
 
-Agent IA
+Figure 4 — Nœud JavaScript de parsing.
+
+* * *
+
+10\. Architecture Multi-Agents IA
+---------------------------------
+
+La plateforme utilise plusieurs agents IA spécialisés.
+
+Agent
 
 Responsabilité
 
-Agent Manifest
+Manifest Agent
 
-Analyse AndroidManifest.xml
+Analyse AndroidManifest.xml.
 
-Agent Réseau/API
+API Agent
 
-Analyse TLS, endpoints et APIs
+Analyse réseau et endpoints.
 
-Agent Reverse Engineering
+Reverse Agent
 
-Analyse des secrets hardcodés et obfuscation
+Analyse reverse engineering.
 
-Agent MASVS
+MASVS Agent
 
-Mapping OWASP MASVS
+Classification MASVS.
 
-Agent Ollama
+Ollama Agent
 
-Analyse locale hors cloud
+Analyse locale.
 
-### 5.5 Synchronisation des Agents
+* * *
 
-Un nœud Merge est utilisé afin de synchroniser les réponses des différents agents IA.
+11\. Agent Gemini
+-----------------
 
-Ce nœud doit impérativement être configuré en mode :
+![Gemini Agent](./docs/screenshots/n8n-gemini-agent.png)
+
+Figure 5 — Agent Gemini utilisé pour l’analyse contextuelle.
+
+* * *
+
+12\. Agent Ollama Local
+-----------------------
+
+![Ollama Node](./docs/screenshots/n8n-ollama-node.png)
+
+Figure 6 — Nœud Ollama local.
+
+* * *
+
+13\. Synchronisation des Agents
+-------------------------------
+
+Les réponses des agents IA sont synchronisées via un nœud Merge.
+
+Configuration critique :
 
 Wait for all inputs to arrive
 
-Cette configuration est critique afin d’éviter les incohérences dans les rapports générés.
+![Merge Node](./docs/screenshots/n8n-merge-node.png)
+
+Figure 7 — Nœud Merge de synchronisation.
 
 * * *
 
-6\. Intégration du RAG (Retrieval-Augmented Generation)
--------------------------------------------------------
+14\. Architecture RAG
+---------------------
 
-Le système utilise une architecture RAG afin d’enrichir les réponses IA avec les documents officiels OWASP.
+Le système utilise une architecture Retrieval-Augmented Generation.
 
-Les fichiers MASVS et MASTG sont indexés dans ChromaDB sous forme d’embeddings vectoriels.
+Les documents OWASP sont indexés dans ChromaDB.
 
-### 6.1 Pipeline RAG
+### 14.1 Pipeline RAG
 
-*   Téléchargement des documents OWASP ;
-*   Découpage des documents ;
+*   Téléchargement des documents ;
+*   Découpage des chunks ;
 *   Création des embeddings ;
-*   Stockage dans ChromaDB ;
-*   Recherche contextuelle par similarité ;
-*   Injection du contexte dans les prompts IA.
+*   Stockage vectoriel ;
+*   Recherche par similarité ;
+*   Injection dans les prompts.
 
-### 6.2 Avantages du RAG
+### 14.2 Embeddings Utilisés
 
-*   Réduction des hallucinations IA ;
-*   Réponses contextualisées ;
-*   Références exactes aux contrôles MASVS ;
-*   Recommandations techniques pertinentes.
+nomic-embed-text
+mxbai-embed-large
 
 * * *
 
-7\. Déploiement Docker
-----------------------
+15\. Réponse IA Enrichie
+------------------------
 
-L’ensemble de la plateforme est conteneurisé via Docker afin de simplifier le déploiement.
+![AI Response](./docs/screenshots/ai-masvs-response.png)
 
-### 7.1 Architecture Docker
+Figure 8 — Réponse IA enrichie avec références MASVS.
 
-\[EMPLACEMENT SCREENSHOT — Docker Containers Running\]
+* * *
 
-  
-  
-  
-  
-  
+16\. Réduction des Faux Positifs
+--------------------------------
 
-### 7.2 Exemple Docker Compose
+MobSF génère souvent des findings non pertinents.
+
+L’IA aide à :
+
+*   Corréler les findings ;
+*   Éliminer les doublons ;
+*   Réduire les faux positifs ;
+*   Prioriser les risques.
+
+* * *
+
+17\. Système de Scoring
+-----------------------
+
+Critère
+
+Poids
+
+Criticité MobSF
+
+40%
+
+Impact métier
+
+25%
+
+Exploitabilité
+
+20%
+
+Mapping MASVS
+
+15%
+
+* * *
+
+18\. Dockerisation
+------------------
+
+L’ensemble des composants est conteneurisé.
+
+![Docker Containers](./docs/screenshots/docker-containers.png)
+
+Figure 9 — Conteneurs Docker actifs.
+
+* * *
+
+19\. Exemple Docker Compose
+---------------------------
 
 version: '3'
 
@@ -260,202 +387,360 @@ services:
 
 * * *
 
-8\. Exemples de Résultats JSON
-------------------------------
+20\. Analyse MobSF
+------------------
 
-Cette section présente quelques exemples de résultats JSON générés après traitement des analyses MobSF.
+MobSF constitue le moteur principal d’analyse statique.
 
-\[EMPLACEMENT SCREENSHOT — Réponses JSON MobSF\]
+![MobSF Dashboard](./docs/screenshots/mobsf-dashboard.png)
 
-  
-  
-  
-  
-  
+Figure 10 — Dashboard MobSF.
 
 * * *
 
-9\. Génération Automatique des Rapports
----------------------------------------
+21\. Vulnérabilités Détectées
+-----------------------------
 
-Après corrélation des analyses IA, la plateforme génère automatiquement un rapport HTML professionnel converti ensuite en PDF via Gotenberg.
-
-### 9.1 Contenu du Rapport
-
-*   Résumé exécutif ;
-*   Informations sur l’APK ;
-*   Liste des vulnérabilités ;
-*   Mapping MASVS ;
-*   Niveau de criticité ;
-*   Impact métier ;
-*   Recommandations ;
-*   Conclusion de sécurité.
-
-### 9.2 Exemples de Pages du Rapport
-
-\[EMPLACEMENT SCREENSHOT — Rapport PDF Page 1\]
-
-  
-  
-  
-  
-  
-
-\[EMPLACEMENT SCREENSHOT — Rapport PDF Page 2\]
-
-  
-  
-  
-  
-  
+*   Hardcoded Secrets ;
+*   Weak Cryptography ;
+*   Root Detection ;
+*   Debug Detection ;
+*   Certificate Validation Issues ;
+*   Insecure Storage ;
+*   Cleartext Traffic ;
+*   Reverse Engineering Exposure.
 
 * * *
 
-10\. Envoi Automatique des Rapports par Email
----------------------------------------------
+22\. Réponses JSON
+------------------
 
-Une fois le rapport généré, celui-ci est automatiquement envoyé au destinataire via le nœud Email de n8n.
+Les résultats MobSF sont traités sous forme JSON.
 
-\[EMPLACEMENT SCREENSHOT — Email Envoyé\]
-
-  
-  
-  
-  
-  
+{
+  "title": "Hardcoded API Key",
+  "severity": "high",
+  "masvs": "MASVS-STORAGE-1"
+}
 
 * * *
 
-11\. Cas d’Étude : OWASP UnCrackable Level 1
---------------------------------------------
+23\. Génération Automatique des Rapports
+----------------------------------------
 
-Afin de tester la plateforme, plusieurs APK vulnérables ont été utilisés comme jeux de test.
+Le système génère automatiquement des rapports HTML puis PDF.
 
-Le principal APK utilisé est :
+### 23.1 Couverture du Rapport
+
+![Cover Page](./docs/screenshots/report-cover-page.png)
+
+Figure 11 — Couverture du rapport.
+
+### 23.2 Executive Summary
+
+![Executive Summary](./docs/screenshots/report-executive-summary.png)
+
+Figure 12 — Résumé exécutif.
+
+### 23.3 Détails des Vulnérabilités
+
+![Vulnerability Detail](./docs/screenshots/report-vulnerability-detail.png)
+
+Figure 13 — Détails des vulnérabilités.
+
+* * *
+
+24\. Envoi Automatique des Emails
+---------------------------------
+
+Le rapport final est automatiquement envoyé par email.
+
+![Automated Email](./docs/screenshots/automated-email-report.png)
+
+Figure 14 — Email automatique contenant le rapport PDF.
+
+* * *
+
+25\. Cas d’Étude : OWASP UnCrackable-Level1
+-------------------------------------------
+
+Plusieurs APK vulnérables ont été utilisés.
+
+Le principal APK testé est :
 
 OWASP UnCrackable-Level1
 
-### 11.1 Vulnérabilités Détectées
+### 25.1 Vulnérabilités Observées
 
 *   Root Detection ;
 *   Debug Detection ;
 *   Hardcoded Secrets ;
 *   Weak Cryptography ;
-*   Certificate Validation Issues ;
-*   Insecure Storage ;
+*   Anti-Tampering ;
 *   Reverse Engineering Exposure.
-
-### 11.2 Captures d’Analyse
-
-\[EMPLACEMENT SCREENSHOT — Analyse MobSF UnCrackable-Level1\]
-
-  
-  
-  
-  
-  
-
-\[EMPLACEMENT SCREENSHOT — Reverse Engineering JADX\]
-
-  
-  
-  
-  
-  
 
 * * *
 
-12\. Répartition des Tâches de l’Équipe
----------------------------------------
+26\. Reverse Engineering
+------------------------
+
+Le reverse engineering est effectué via JADX.
+
+Les analyses permettent :
+
+*   L’extraction du code ;
+*   L’analyse des secrets ;
+*   L’identification des protections ;
+*   L’étude des mécanismes anti-debug.
+
+* * *
+
+27\. Méthodologie de Développement
+----------------------------------
+
+Le projet suit une approche modulaire et incrémentale.
+
+*   Architecture orientée services ;
+*   Automatisation progressive ;
+*   Tests continus ;
+*   Validation incrémentale ;
+*   Développement collaboratif.
+
+* * *
+
+28\. Organisation des Dossiers
+------------------------------
+
+/project
+│
+├── docs/
+├── screenshots/
+├── workflows/
+├── reports/
+├── rag/
+├── prompts/
+├── docker/
+├── parsers/
+├── scripts/
+└── outputs/
+
+* * *
+
+29\. Gestion des Prompts IA
+---------------------------
+
+Les prompts sont contextualisés avec :
+
+*   Les findings MobSF ;
+*   Le contexte MASVS ;
+*   Les documents RAG ;
+*   Les recommandations OWASP.
+
+Analyze the following Android vulnerability
+and map it to OWASP MASVS controls.
+
+* * *
+
+30\. Analyse des Performances
+-----------------------------
+
+Étape
+
+Temps Moyen
+
+MobSF Scan
+
+2 min
+
+IA Analysis
+
+30 sec
+
+PDF Generation
+
+10 sec
+
+Email Delivery
+
+5 sec
+
+* * *
+
+31\. Comparaison Avant / Après Automatisation
+---------------------------------------------
+
+Processus
+
+Manuel
+
+Automatisé
+
+Mapping MASVS
+
+30 min
+
+10 sec
+
+Rapport PDF
+
+1h
+
+20 sec
+
+Analyse Findings
+
+45 min
+
+15 sec
+
+* * *
+
+32\. Sécurité de la Plateforme
+------------------------------
+
+*   Isolation Docker ;
+*   IA locale ;
+*   Réduction dépendance cloud ;
+*   Confidentialité des analyses ;
+*   Segmentation des services.
+
+* * *
+
+33\. Difficultés Rencontrées
+----------------------------
+
+*   Synchronisation IA ;
+*   Quotas Gemini ;
+*   Consommation RAM ;
+*   Faux positifs MobSF ;
+*   Complexité MASVS ;
+*   Normalisation JSON.
+
+* * *
+
+34\. Perspectives Futures
+-------------------------
+
+*   Support iOS ;
+*   Burp Suite ;
+*   Dashboard temps réel ;
+*   CI/CD Security ;
+*   Scoring CVSS ;
+*   Support multi-utilisateurs ;
+*   SIEM Integration.
+
+* * *
+
+35\. Pipeline CI/CD Futur
+-------------------------
+
+GitHub Actions
+↓
+APK Build
+↓
+MobAuditFlow
+↓
+Security Analysis
+↓
+PDF Report
+↓
+Deployment Validation
+
+* * *
+
+36\. Glossaire
+--------------
+
+Terme
+
+Définition
+
+RAG
+
+Retrieval-Augmented Generation
+
+MASVS
+
+Mobile Application Security Verification Standard
+
+APK
+
+Android Package
+
+SAST
+
+Static Application Security Testing
+
+* * *
+
+37\. Répartition des Tâches
+---------------------------
 
 Membre
 
 Responsabilités
 
-P1 — Lead Sécurité
+P1
 
-Analyse APK, MobSF, Reverse Engineering
+Analyse APK et MobSF
 
-P2 — Architecte IA
+P2
 
-RAG, prompts, embeddings, ChromaDB
+RAG et IA
 
-P3 — Développeur n8n
+P3
 
-Orchestration et automatisation
+n8n et orchestration
 
-P4 — QA & Reporting
+P4
 
-Validation des rapports et tests
-
-* * *
-
-13\. Difficultés Rencontrées
-----------------------------
-
-*   Synchronisation des agents IA ;
-*   Gestion des quotas Gemini ;
-*   Normalisation des JSON ;
-*   Faux positifs MobSF ;
-*   Temps de réponse des modèles locaux ;
-*   Gestion mémoire de Docker ;
-*   Complexité du mapping MASVS.
+QA et reporting
 
 * * *
 
-14\. Perspectives Futures
--------------------------
+38\. Technologies Utilisées
+---------------------------
 
-*   Support iOS ;
-*   Analyse dynamique avancée ;
-*   Intégration Burp Suite ;
-*   Scoring CVSS automatique ;
-*   Dashboard temps réel ;
-*   Support multi-utilisateurs ;
-*   Intégration SIEM/SOC ;
-*   IA spécialisée cybersécurité.
+*   n8n ;
+*   MobSF ;
+*   Ollama ;
+*   Gemini API ;
+*   Docker ;
+*   ChromaDB ;
+*   JavaScript ;
+*   Node.js ;
+*   Google Drive API ;
+*   Gotenberg.
 
 * * *
 
-15\. Conclusion
+39\. Références
 ---------------
 
-Cette plateforme représente une approche moderne de l’automatisation des audits de sécurité mobiles combinant intelligence artificielle, orchestration low-code et standards OWASP.
-
-Le projet démontre qu’il est possible de transformer des tâches traditionnellement manuelles et complexes en pipelines intelligents capables de produire des analyses cohérentes, contextualisées et professionnelles.
-
-L’architecture modulaire adoptée permet également une grande évolutivité et ouvre la voie à la création de futures plateformes de cybersécurité assistées par IA.
+*   OWASP MASVS ;
+*   OWASP MASTG ;
+*   MobSF Documentation ;
+*   n8n Documentation ;
+*   Ollama Documentation ;
+*   Docker Documentation ;
+*   ChromaDB Documentation.
 
 * * *
 
-16\. Annexes
-------------
+40\. Conclusion
+---------------
 
-### 16.1 Screenshots à Ajouter
+MobAuditFlow démontre qu’il est possible d’autatiser une grande partie des audits de sécurité mobiles grâce à l’intelligence artificielle et l’orchestration low-code.
 
-*   Architecture générale ;
-*   Workflow n8n ;
-*   Nœuds IA ;
-*   Docker Desktop ;
-*   Réponses JSON ;
-*   Rapports PDF ;
-*   Emails envoyés ;
-*   Analyse MobSF ;
-*   Reverse Engineering JADX ;
-*   OWASP UnCrackable-Level1.
+La plateforme permet :
 
-### 16.2 Technologies Utilisées
+*   La standardisation des audits ;
+*   La réduction du temps humain ;
+*   L’amélioration de la contextualisation ;
+*   La génération automatique de rapports ;
+*   L’intégration future dans des pipelines DevSecOps.
 
-*   n8n
-*   MobSF
-*   Ollama
-*   Gemini API
-*   ChromaDB
-*   Docker
-*   Gotenberg
-*   JavaScript
-*   Node.js
-*   Google Drive API
+Le projet constitue une base solide pour le développement futur de plateformes avancées de cybersécurité assistées par IA.
 
 * * *
 
