@@ -461,14 +461,14 @@ Figure 14 — Email automatique contenant le rapport PDF.
 
 * * *
 
-25\. Cas d’Étude : OWASP UnCrackable-Level1
+25\. Cas d’Étude : OWASP UnCrackable-Level2
 -------------------------------------------
 
 Plusieurs APK vulnérables ont été utilisés.
 
 Le principal APK testé est :
 
-OWASP UnCrackable-Level1
+OWASP UnCrackable-Level2
 
 ### 25.1 Vulnérabilités Observées
 
