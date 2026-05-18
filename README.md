@@ -480,27 +480,12 @@ and map it to OWASP MASVS controls.
 30\. Analyse des Performances
 -----------------------------
 
-Étape
-
-Temps Moyen
-
-MobSF Scan
-
-2 min
-
-IA Analysis
-
-30 sec
-
-PDF Generation
-
-10 sec
-
-Email Delivery
-
-5 sec
-
-* * *
+| Étape | Temps moyen |
+|---|---|
+| **MobSF Scan** | 2 min |
+| **IA Analysis** | 30 sec |
+| **PDF Generation** | 10 sec |
+| **Email Delivery** | 5 sec |
 
 31\. Comparaison Avant / Après Automatisation
 ---------------------------------------------
