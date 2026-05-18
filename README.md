@@ -126,7 +126,6 @@ Figure 1 — Architecture générale de la plateforme MobAuditFlow.
 | **Docker** | Conteneurisation des services. |
 | **Gotenberg** | Conversion HTML vers PDF. |
 | **Google Drive** | Point d’entrée des analyses. |
-* * *
 
 6\. Workflow Global du Système
 ------------------------------
