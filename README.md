@@ -743,5 +743,40 @@ La plateforme permet :
 Le projet constitue une base solide pour le développement futur de plateformes avancées de cybersécurité assistées par IA.
 
 * * *
+## 17. Démonstration Vidéo de la Plateforme
+
+Cette démonstration vidéo présente le fonctionnement global de la plateforme intelligente **MobAuditFlow**.
+
+La vidéo illustre les différentes étapes du pipeline :
+
+- Détection automatique des scans MobSF ;
+- Déclenchement automatique du workflow n8n ;
+- Parsing et nettoyage des données JSON ;
+- Analyse multi-agents IA ;
+- Mapping OWASP MASVS ;
+- Génération automatique des rapports ;
+- Envoi automatique par email ;
+- Analyse d’exemple sur OWASP UnCrackable-Level1.
+
+---
+
+<video width="100%" controls poster="docs/screenshots/overview-banner.png">
+    <source src="docs/demo/demo.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas les vidéos HTML5.
+</video>
+
+---
+
+### Emplacement du fichier vidéo
+
+```text
+docs/
+└── demo/
+    └── demo.mp4
+```
+
+### Note
+
+Si la vidéo ne s’affiche pas correctement sur GitHub, il est recommandé d’ouvrir directement le fichier `README.html` dans un navigateur web local.
 
 Projet académique réalisé dans le cadre d’un système intelligent d’automatisation des audits de sécurité mobile.
