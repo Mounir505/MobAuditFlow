@@ -765,6 +765,12 @@ La vidéo illustre les différentes étapes du pipeline :
 
 
 
+https://github.com/user-attachments/assets/5ba25bdb-37fd-4192-9755-ba010d06180e
+
+
+
+
+
 ---
 
 ### Emplacement du fichier vidéo
