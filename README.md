@@ -116,70 +116,46 @@ Figure 1 — Architecture générale de la plateforme MobAuditFlow.
 5\. Description des Composants
 ------------------------------
 
-Composant
-
-Description
-
-MobSF
-
-Analyse statique et dynamique des APK Android.
-
-n8n
-
-Orchestration complète des workflows.
-
-Ollama
-
-Exécution locale des modèles IA.
-
-Gemini API
-
-Analyse IA distante.
-
-ChromaDB
-
-Base vectorielle utilisée pour le RAG.
-
-Docker
-
-Conteneurisation des services.
-
-Gotenberg
-
-Conversion HTML vers PDF.
-
-Google Drive
-
-Point d’entrée des analyses.
-
+| Composant | Description |
+|---|---|
+| **MobSF** | Analyse statique et dynamique des APK Android. |
+| **n8n** | Orchestration complète des workflows. |
+| **Ollama** | Exécution locale des modèles IA. |
+| **Gemini API** | Analyse IA distante. |
+| **ChromaDB** | Base vectorielle utilisée pour le RAG. |
+| **Docker** | Conteneurisation des services. |
+| **Gotenberg** | Conversion HTML vers PDF. |
+| **Google Drive** | Point d’entrée des analyses. |
 * * *
 
 6\. Workflow Global du Système
 ------------------------------
 
+```text
 APK Upload
-↓
+    ↓
 MobSF Analysis
-↓
+    ↓
 JSON Export
-↓
+    ↓
 Google Drive Trigger
-↓
+    ↓
 n8n Workflow
-↓
+    ↓
 JavaScript Parsing
-↓
+    ↓
 AI Multi-Agents
-↓
+    ↓
 RAG MASVS Lookup
-↓
+    ↓
 Merge Results
-↓
+    ↓
 HTML Report
-↓
+    ↓
 PDF Conversion
-↓
+    ↓
 Email Delivery
+```
 
 * * *
 
@@ -228,30 +204,13 @@ Figure 4 — Nœud JavaScript de parsing.
 
 La plateforme utilise plusieurs agents IA spécialisés.
 
-Agent
-
-Responsabilité
-
-Manifest Agent
-
-Analyse AndroidManifest.xml.
-
-API Agent
-
-Analyse réseau et endpoints.
-
-Reverse Agent
-
-Analyse reverse engineering.
-
-MASVS Agent
-
-Classification MASVS.
-
-Ollama Agent
-
-Analyse locale.
-
+| Agent | Responsabilité |
+|---|---|
+| **Manifest Agent** | Analyse `AndroidManifest.xml`. |
+| **API Agent** | Analyse réseau et endpoints. |
+| **Reverse Agent** | Analyse reverse engineering. |
+| **MASVS Agent** | Classification MASVS. |
+| **Ollama Agent** | Analyse locale. |
 * * *
 
 11\. Agent Gemini
@@ -333,28 +292,12 @@ L’IA aide à :
 
 * * *
 
-17\. Système de Scoring
------------------------
-
-Critère
-
-Poids
-
-Criticité MobSF
-
-40%
-
-Impact métier
-
-25%
-
-Exploitabilité
-
-20%
-
-Mapping MASVS
-
-15%
+| Critère | Poids |
+|---|---|
+| **Criticité MobSF** | 40% |
+| **Impact métier** | 25% |
+| **Exploitabilité** | 20% |
+| **Mapping MASVS** | 15% |
 
 * * *
 
@@ -372,21 +315,12 @@ Figure 9 — Conteneurs Docker actifs.
 19\. Exemple Docker Compose
 ---------------------------
 
-version: '3'
-
-services:
-
-  n8n:
-    image: n8nio/n8n
-
-  ollama:
-    image: ollama/ollama
-
-  chromadb:
-    image: chromadb/chroma
-
-  gotenberg:
-    image: gotenberg/gotenberg
+| Service | Image Docker | Description |
+|---|---|---|
+| **n8n** | `n8nio/n8n` | Plateforme d’automatisation et d’orchestration des workflows. |
+| **ollama** | `ollama/ollama` | Exécution locale des modèles d’intelligence artificielle. |
+| **chromadb** | `chromadb/chroma` | Base vectorielle utilisée pour le système RAG. |
+| **gotenberg** | `gotenberg/gotenberg` | Conversion des rapports HTML en fichiers PDF. |
 
 * * *
 
@@ -420,12 +354,13 @@ Figure 10 — Dashboard MobSF.
 
 Les résultats MobSF sont traités sous forme JSON.
 
+```json
 {
   "title": "Hardcoded API Key",
   "severity": "high",
   "masvs": "MASVS-STORAGE-1"
 }
-
+```
 * * *
 
 23\. Génération Automatique des Rapports
@@ -517,7 +452,6 @@ Le projet suit une approche modulaire et incrémentale.
 /project
 │
 ├── docs/
-├── screenshots/
 ├── workflows/
 ├── reports/
 ├── rag/
