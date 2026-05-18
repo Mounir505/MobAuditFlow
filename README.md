@@ -8,7 +8,8 @@ MobAuditFlow
 
 * * *
 
-![MobAuditFlow Banner](./docs/screenshots/overview-banner.png)
+<img width="1194" height="687" alt="overview-banner" src="https://github.com/user-attachments/assets/af4819b9-d3f8-47ac-aa30-e07ef5526c80" />
+
 
 * * *
 
@@ -105,7 +106,8 @@ L’architecture suit un modèle modulaire.
 
 Chaque composant possède une responsabilité spécifique.
 
-![Architecture Générale](./docs/screenshots/general-architecture.png)
+<img width="2655" height="1214" alt="general-architecture" src="https://github.com/user-attachments/assets/b43b19b4-8310-43ca-9912-f5e1a04ac3ed" />
+
 
 Figure 1 — Architecture générale de la plateforme MobAuditFlow.
 
@@ -186,7 +188,8 @@ Email Delivery
 
 Le workflow n8n constitue le cerveau opérationnel de la plateforme.
 
-![Workflow Principal](./docs/screenshots/n8n-main-workflow.png)
+<img width="1408" height="768" alt="n8n-main-workflow" src="https://github.com/user-attachments/assets/b9c6e565-7d6c-49dc-9da9-abdc6bc7e631" />
+
 
 Figure 2 — Workflow principal n8n.
 
@@ -197,7 +200,7 @@ Figure 2 — Workflow principal n8n.
 
 Le workflow démarre automatiquement lorsqu’un nouveau fichier JSON MobSF est détecté.
 
-![Drive Trigger](./docs/screenshots/n8n-drive-trigger.png)
+<img width="2782" height="1401" alt="n8n-drive-trigger" src="https://github.com/user-attachments/assets/e74178cc-50c7-4d46-81ff-d1bf457266c0" />
 
 Figure 3 — Déclencheur Google Drive.
 
@@ -214,7 +217,7 @@ Un nœud JavaScript spécialisé permet :
 *   La normalisation JSON ;
 *   La préparation des prompts IA.
 
-![JS Parser](./docs/screenshots/n8n-js-parser.png)
+<img width="2790" height="1406" alt="n8n-js-parser" src="https://github.com/user-attachments/assets/9fb09fe8-12f9-44d8-85e7-973d8194fffa" />
 
 Figure 4 — Nœud JavaScript de parsing.
 
@@ -254,7 +257,7 @@ Analyse locale.
 11\. Agent Gemini
 -----------------
 
-![Gemini Agent](./docs/screenshots/n8n-gemini-agent.png)
+<img width="2796" height="1399" alt="n8n-gemini-agent" src="https://github.com/user-attachments/assets/45fb32f7-e68f-4950-b1e0-4b0735e170e2" />
 
 Figure 5 — Agent Gemini utilisé pour l’analyse contextuelle.
 
@@ -263,7 +266,7 @@ Figure 5 — Agent Gemini utilisé pour l’analyse contextuelle.
 12\. Agent Ollama Local
 -----------------------
 
-![Ollama Node](./docs/screenshots/n8n-ollama-node.png)
+<img width="2791" height="1416" alt="n8n-ollama-node" src="https://github.com/user-attachments/assets/abe1980a-ee80-4b8e-a628-1725554ec525" />
 
 Figure 6 — Nœud Ollama local.
 
@@ -278,7 +281,7 @@ Configuration critique :
 
 Wait for all inputs to arrive
 
-![Merge Node](./docs/screenshots/n8n-merge-node.png)
+<img width="2794" height="1413" alt="n8n-merge-node" src="https://github.com/user-attachments/assets/f4d37cfe-0162-4f01-9ac7-afe89cf1690a" />
 
 Figure 7 — Nœud Merge de synchronisation.
 
@@ -310,7 +313,7 @@ mxbai-embed-large
 15\. Réponse IA Enrichie
 ------------------------
 
-![AI Response](./docs/screenshots/ai-masvs-response.png)
+<img width="875" height="1129" alt="ai-masvs-response" src="https://github.com/user-attachments/assets/4afa775d-5177-4d2a-ba69-bbbf79119758" />
 
 Figure 8 — Réponse IA enrichie avec références MASVS.
 
@@ -360,7 +363,7 @@ Mapping MASVS
 
 L’ensemble des composants est conteneurisé.
 
-![Docker Containers](./docs/screenshots/docker-containers.png)
+<img width="1880" height="272" alt="docker-containers" src="https://github.com/user-attachments/assets/569c4c0d-3492-4e8d-b775-b498d865171f" />
 
 Figure 9 — Conteneurs Docker actifs.
 
@@ -392,7 +395,7 @@ services:
 
 MobSF constitue le moteur principal d’analyse statique.
 
-![MobSF Dashboard](./docs/screenshots/mobsf-dashboard.png)
+<img width="2843" height="1524" alt="mobsf-dashboard" src="https://github.com/user-attachments/assets/18d4e2e8-5f38-48a2-aaf2-87a61efe221c" />
 
 Figure 10 — Dashboard MobSF.
 
@@ -432,19 +435,19 @@ Le système génère automatiquement des rapports HTML puis PDF.
 
 ### 23.1 Couverture du Rapport
 
-![Cover Page](./docs/screenshots/report-cover-page.png)
+<img width="1583" height="1267" alt="report-cover-page" src="https://github.com/user-attachments/assets/6b976f3f-cbab-4818-adc1-92b120399f37" />
 
 Figure 11 — Couverture du rapport.
 
 ### 23.2 Executive Summary
 
-![Executive Summary](./docs/screenshots/report-executive-summary.png)
+<img width="1289" height="1228" alt="report-executive-summary" src="https://github.com/user-attachments/assets/114e4197-a5fe-41c1-8dc0-e0396f90b683" />
 
 Figure 12 — Résumé exécutif.
 
 ### 23.3 Détails des Vulnérabilités
 
-![Vulnerability Detail](./docs/screenshots/report-vulnerability-detail.png)
+<img width="1357" height="1314" alt="report-vulnerability-detail" src="https://github.com/user-attachments/assets/70226960-533c-413d-93ea-c7a63aee190b" />
 
 Figure 13 — Détails des vulnérabilités.
 
@@ -455,7 +458,7 @@ Figure 13 — Détails des vulnérabilités.
 
 Le rapport final est automatiquement envoyé par email.
 
-![Automated Email](./docs/screenshots/automated-email-report.png)
+<img width="2730" height="1510" alt="automated-email-report" src="https://github.com/user-attachments/assets/e5929bfc-2cbb-4180-ac70-354c8733e4a4" />
 
 Figure 14 — Email automatique contenant le rapport PDF.
 
@@ -760,10 +763,7 @@ La vidéo illustre les différentes étapes du pipeline :
 
 ---
 
-<video width="100%" controls poster="docs/screenshots/overview-banner.png">
-    <source src="docs/demo/demo.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas les vidéos HTML5.
-</video>
+
 
 ---
 
