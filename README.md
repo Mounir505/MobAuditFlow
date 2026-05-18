@@ -448,6 +448,9 @@ Le projet suit une approche modulaire et incrémentale.
 28\. Organisation des Dossiers
 ------------------------------
 
+## 28. Organisation des Dossiers
+
+```text
 /project
 │
 ├── docs/
@@ -459,6 +462,7 @@ Le projet suit une approche modulaire et incrémentale.
 ├── parsers/
 ├── scripts/
 └── outputs/
+```
 
 * * *
 
@@ -567,9 +571,7 @@ Deployment Validation
 37\. Répartition des Tâches
 ---------------------------
 
-Membre
 
-Responsabilités
 
 | Membre | Responsabilités |
 |---|---|
