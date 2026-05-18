@@ -571,21 +571,12 @@ Membre
 
 Responsabilités
 
-P1
-
-Analyse APK et MobSF
-
-P2
-
-RAG et IA
-
-P3
-
-n8n et orchestration
-
-P4
-
-QA et reporting
+| Membre | Responsabilités |
+|---|---|
+| **BELKHO Malak** | Analyse APK et MobSF |
+| **ZARRI Yousra** | RAG et IA |
+| **MERGHICH Mounir** | n8n et orchestration |
+| **LAZZOUZI Hiba** | QA et reporting |
 
 * * *
 
