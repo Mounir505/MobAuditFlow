@@ -490,29 +490,11 @@ and map it to OWASP MASVS controls.
 31\. Comparaison Avant / Après Automatisation
 ---------------------------------------------
 
-Processus
-
-Manuel
-
-Automatisé
-
-Mapping MASVS
-
-30 min
-
-10 sec
-
-Rapport PDF
-
-1h
-
-20 sec
-
-Analyse Findings
-
-45 min
-
-15 sec
+| Processus | Manuel | Automatisé |
+|---|---|---|
+| **Mapping MASVS** | 30 min | 10 sec |
+| **Rapport PDF** | 1h | 20 sec |
+| **Analyse Findings** | 45 min | 15 sec |
 
 * * *
 
@@ -701,6 +683,6 @@ docs/
 
 ### Note
 
-Si la vidéo ne s’affiche pas correctement sur GitHub, il est recommandé d’ouvrir directement le fichier `README.html` dans un navigateur web local.
+Si la vidéo ne s’affiche pas correctement sur GitHub, il est recommandé d’ouvrir directement le fichier `README.md` dans un navigateur web local.
 
 Projet académique réalisé dans le cadre d’un système intelligent d’automatisation des audits de sécurité mobile.
