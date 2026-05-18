@@ -537,6 +537,7 @@ and map it to OWASP MASVS controls.
 35\. Pipeline CI/CD Futur
 -------------------------
 
+```text
 GitHub Actions
 ↓
 APK Build
@@ -548,31 +549,18 @@ Security Analysis
 PDF Report
 ↓
 Deployment Validation
-
+```
 * * *
 
 36\. Glossaire
 --------------
 
-Terme
-
-Définition
-
-RAG
-
-Retrieval-Augmented Generation
-
-MASVS
-
-Mobile Application Security Verification Standard
-
-APK
-
-Android Package
-
-SAST
-
-Static Application Security Testing
+| Terme | Définition |
+|---|---|
+| **RAG** | Retrieval-Augmented Generation |
+| **MASVS** | Mobile Application Security Verification Standard |
+| **APK** | Android Package |
+| **SAST** | Static Application Security Testing |
 
 * * *
 
