@@ -2,11 +2,8 @@
 
 Plateforme d’Audit Automatisé Mobile basée sur OWASP MASVS / MASTG et Intelligence Artificielle
 ===============================================================================================
-* * *
-MobAuditFlow
-*  * *
 
-
+# MobAuditFlow
 
 <img width="1600" height="983" alt="System_architecture_and_workflow_diagram" src="https://github.com/user-attachments/assets/2fa895c1-9ede-4e83-8a75-de3bdde28e31" />
 
