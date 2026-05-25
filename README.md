@@ -662,8 +662,5 @@ docs/
     └── demo.mp4
 ```
 
-### Note
-
-Si la vidéo ne s’affiche pas correctement sur GitHub, il est recommandé d’ouvrir directement le fichier `README.md` dans un navigateur web local.
 
 Projet académique réalisé dans le cadre d’un système intelligent d’automatisation des audits de sécurité mobile.
