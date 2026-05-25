@@ -528,7 +528,7 @@ Une fois le scan terminé, la page affiche :
 
 ---
 
-### 26.7 Vue AI Findings
+### 26.6 Vue AI Findings
 
 L'onglet **AI Findings** affiche les résultats enrichis par les agents IA :
 - Mapping automatique vers les contrôles **OWASP MASVS**
@@ -541,7 +541,7 @@ L'onglet **AI Findings** affiche les résultats enrichis par les agents IA :
 
 ---
 
-### 26.8 Vue Binary Analysis
+### 26.7 Vue Binary Analysis
 
 L'onglet **Binary** présente une analyse visuelle des findings binaires par niveau de criticité sous forme de graphique à barres.
 
@@ -551,7 +551,7 @@ L'onglet **Binary** présente une analyse visuelle des findings binaires par niv
 
 ---
 
-### 26.9 Sélection du Fichier APK
+### 26.8 Sélection du Fichier APK
 
 L'interface propose un sélecteur de fichiers natif. Plusieurs APK de test sont supportés : `UnCrackable-Level1.apk`, `DivaApplication.apk`, `UnCrackable-Level3.apk`.
 
@@ -561,7 +561,7 @@ L'interface propose un sélecteur de fichiers natif. Plusieurs APK de test sont 
 
 ---
 
-### 26.10 Vue PDF Report — Téléchargement
+### 26.9 Vue PDF Report — Téléchargement
 
 L'onglet **PDF Report** permet de télécharger le rapport PDF généré automatiquement par **Gotenberg**.
 
@@ -571,7 +571,7 @@ L'onglet **PDF Report** permet de télécharger le rapport PDF généré automat
 
 ---
 
-### 26.11 Résumé des Fonctionnalités Web
+### 26.10 Résumé des Fonctionnalités Web
 
 | Fonctionnalité | Description |
 |---|---|
@@ -586,7 +586,7 @@ L'onglet **PDF Report** permet de télécharger le rapport PDF généré automat
 
 * * *
 
-28\. Organisation des Dossiers
+27\. Organisation des Dossiers
 ------------------------------
 
 
@@ -607,7 +607,7 @@ L'onglet **PDF Report** permet de télécharger le rapport PDF généré automat
 
 * * *
 
-29\. Gestion des Prompts IA
+28\. Gestion des Prompts IA
 ---------------------------
 
 Les prompts sont contextualisés avec :
@@ -622,7 +622,7 @@ and map it to OWASP MASVS controls.
 
 * * *
 
-30\. Analyse des Performances
+29\. Analyse des Performances
 -----------------------------
 
 | Étape | Temps moyen |
@@ -632,7 +632,7 @@ and map it to OWASP MASVS controls.
 | **PDF Generation** | 10 sec |
 | **Email Delivery** | 5 sec |
 
-31\. Comparaison Avant / Après Automatisation
+30\. Comparaison Avant / Après Automatisation
 ---------------------------------------------
 
 | Processus | Manuel | Automatisé |
@@ -643,7 +643,7 @@ and map it to OWASP MASVS controls.
 
 * * *
 
-32\. Sécurité de la Plateforme
+31\. Sécurité de la Plateforme
 ------------------------------
 
 *   Isolation Docker ;
@@ -654,7 +654,7 @@ and map it to OWASP MASVS controls.
 
 * * *
 
-33\. Difficultés Rencontrées
+32\. Difficultés Rencontrées
 ----------------------------
 
 *   Synchronisation IA ;
@@ -666,7 +666,7 @@ and map it to OWASP MASVS controls.
 
 * * *
 
-34\. Perspectives Futures
+33\. Perspectives Futures
 -------------------------
 
 *   Support iOS ;
@@ -679,7 +679,7 @@ and map it to OWASP MASVS controls.
 
 * * *
 
-35\. Pipeline CI/CD Futur
+34\. Pipeline CI/CD Futur
 -------------------------
 
 ```text
@@ -697,7 +697,7 @@ Deployment Validation
 ```
 * * *
 
-36\. Glossaire
+35\. Glossaire
 --------------
 
 | Terme | Définition |
@@ -709,7 +709,7 @@ Deployment Validation
 
 * * *
 
-37\. Répartition des Tâches
+36\. Répartition des Tâches
 ---------------------------
 
 
@@ -723,7 +723,7 @@ Deployment Validation
 
 * * *
 
-38\. Technologies Utilisées
+37\. Technologies Utilisées
 ---------------------------
 
 *   n8n ;
@@ -739,7 +739,7 @@ Deployment Validation
 
 * * *
 
-39\. Références
+38\. Références
 ---------------
 
 *   OWASP MASVS ;
@@ -752,7 +752,7 @@ Deployment Validation
 
 * * *
 
-40\. Conclusion
+39\. Conclusion
 ---------------
 
 MobAuditFlow démontre qu’il est possible d’autatiser une grande partie des audits de sécurité mobiles grâce à l’intelligence artificielle et l’orchestration low-code.
@@ -768,7 +768,7 @@ La plateforme permet :
 Le projet constitue une base solide pour le développement futur de plateformes avancées de cybersécurité assistées par IA.
 
 * * *
-## 17. Démonstration Vidéo de la Plateforme
+## 40. Démonstration Vidéo de la Plateforme
 
 Cette démonstration vidéo présente le fonctionnement global de la plateforme intelligente **MobAuditFlow**.
 
@@ -803,5 +803,5 @@ docs/
     └── demo.mp4
 ```
 
-
+* * *
 Projet académique réalisé dans le cadre d’un système intelligent d’automatisation des audits de sécurité mobile.
