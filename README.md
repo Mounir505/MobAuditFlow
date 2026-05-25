@@ -431,9 +431,7 @@ Les analyses permettent :
 *   L’identification des protections ;
 *   L’étude des mécanismes anti-debug.
 
-* * *
 
-* * *
 * * *
 
 --------------------------------------------------
