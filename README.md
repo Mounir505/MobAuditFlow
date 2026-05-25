@@ -128,6 +128,8 @@ Figure 1 — Architecture générale de la plateforme MobAuditFlow.
 | **Gotenberg** | Conversion HTML vers PDF. |
 | **Google Drive** | Point d’entrée des analyses. |
 
+* * *
+
 6\. Workflow Global du Système
 ------------------------------
 
@@ -290,7 +292,7 @@ L’IA aide à :
 *   Réduire les faux positifs ;
 *   Prioriser les risques.
 
-* * *
+
 
 | Critère | Poids |
 |---|---|
@@ -301,7 +303,7 @@ L’IA aide à :
 
 * * *
 
-18\. Dockerisation
+17\. Dockerisation
 ------------------
 
 L’ensemble des composants est conteneurisé.
@@ -312,7 +314,7 @@ Figure 9 — Conteneurs Docker actifs.
 
 * * *
 
-19\. Exemple Docker Compose
+18\. Exemple Docker Compose
 ---------------------------
 
 | Service | Image Docker | Description |
@@ -324,7 +326,7 @@ Figure 9 — Conteneurs Docker actifs.
 
 * * *
 
-20\. Analyse MobSF
+19\. Analyse MobSF
 ------------------
 
 MobSF constitue le moteur principal d’analyse statique.
@@ -335,7 +337,7 @@ Figure 10 — Dashboard MobSF.
 
 * * *
 
-21\. Vulnérabilités Détectées
+20\. Vulnérabilités Détectées
 -----------------------------
 
 *   Hardcoded Secrets ;
@@ -349,7 +351,7 @@ Figure 10 — Dashboard MobSF.
 
 * * *
 
-22\. Réponses JSON
+21\. Réponses JSON
 ------------------
 
 Les résultats MobSF sont traités sous forme JSON.
@@ -363,24 +365,24 @@ Les résultats MobSF sont traités sous forme JSON.
 ```
 * * *
 
-23\. Génération Automatique des Rapports
+22\. Génération Automatique des Rapports
 ----------------------------------------
 
 Le système génère automatiquement des rapports HTML puis PDF.
 
-### 23.1 Couverture du Rapport
+### 22.1 Couverture du Rapport
 
 <img width="1583" height="1267" alt="report-cover-page" src="https://github.com/user-attachments/assets/6b976f3f-cbab-4818-adc1-92b120399f37" />
 
 Figure 11 — Couverture du rapport.
 
-### 23.2 Executive Summary
+### 22.2 Executive Summary
 
 <img width="1289" height="1228" alt="report-executive-summary" src="https://github.com/user-attachments/assets/114e4197-a5fe-41c1-8dc0-e0396f90b683" />
 
 Figure 12 — Résumé exécutif.
 
-### 23.3 Détails des Vulnérabilités
+### 22.3 Détails des Vulnérabilités
 
 <img width="1357" height="1314" alt="report-vulnerability-detail" src="https://github.com/user-attachments/assets/70226960-533c-413d-93ea-c7a63aee190b" />
 
@@ -388,7 +390,7 @@ Figure 13 — Détails des vulnérabilités.
 
 * * *
 
-24\. Envoi Automatique des Emails
+23\. Envoi Automatique des Emails
 ---------------------------------
 
 Le rapport final est automatiquement envoyé par email.
@@ -399,7 +401,7 @@ Figure 14 — Email automatique contenant le rapport PDF.
 
 * * *
 
-25\. Cas d’Étude : OWASP UnCrackable-Level2
+24\. Cas d’Étude : OWASP UnCrackable-Level2
 -------------------------------------------
 
 Plusieurs APK vulnérables ont été utilisés.
@@ -419,7 +421,7 @@ OWASP UnCrackable-Level2
 
 * * *
 
-26\. Reverse Engineering
+25\. Reverse Engineering
 ------------------------
 
 Le reverse engineering est effectué via JADX.
@@ -434,9 +436,9 @@ Les analyses permettent :
 
 * * *
 
---------------------------------------------------
-## **27. Interface Application Web (Web App Dashboard)**
 
+26\. Interface Application Web (Web App Dashboard)**
+-------------------------------------------------------
 MobAuditFlow intègre une interface web personnalisée développée avec **React.js**, 
 permettant de visualiser et interagir avec le pipeline de sécurité mobile en temps réel.
 
