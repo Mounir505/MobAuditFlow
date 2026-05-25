@@ -432,85 +432,159 @@ Les analyses permettent :
 
 * * *
 
-27\. Méthodologie de Développement
-----------------------------------
-
-Le projet suit une approche modulaire et incrémentale.
-
-*   Architecture orientée services ;
-*   Automatisation progressive ;
-*   Tests continus ;
-*   Validation incrémentale ;
-*   Développement collaboratif.
-
 * * *
 * * *
 
-27. Interface Application Web (Web App Dashboard)
 --------------------------------------------------
+## **27. Interface Application Web (Web App Dashboard)**
 
-Pour démocratiser l'accès au pipeline d'audit et offrir une expérience utilisateur moderne et fluide, **MobAuditFlow** intègre une application web (Frontend) au design épuré *Cybersecurity-ready*. Conçue en mode sombre, cette interface unifiée sert de tour de contrôle asynchrone permettant aux auditeurs et aux développeurs d'interagir directement avec la plateforme sans aucune manipulation de scripts en ligne de commande.
+MobAuditFlow intègre une interface web personnalisée développée avec **React.js**, 
+permettant de visualiser et interagir avec le pipeline de sécurité mobile en temps réel.
 
-### 27.1 Architecture et Cinématique des Données
+### Stack Technique
 
-L'application web ne se contente pas d'être une simple vitrine graphique ; elle agit comme un client réactif synchronisé par événements avec le serveur d'orchestration n8n.
-[Utilisateur] --- (Dépose l'APK) ---> [Frontend Dropzone]
-|
-(Requête POST HTTP)
-v
-[Dashboard Live] <-- (Callback State) <-- [Webhook n8n]
-Lorsqu'une analyse est lancée, l'interface orchestre les flux suivants :
-1. **Payload Transmission :** Le fichier binaire `.apk` est intercepté par le client et poussé de manière sécurisée vers l'infrastructure de stockage (Google Drive API).
-2. **Session Initialization :** Un identifiant unique de session de scan (UUID) est généré en corrélation directe avec l'ID d'exécution du workflow n8n.
-3. **Event Polling / Callbacks :** Le frontend se met à l'écoute des points d'entrée (Webhooks) de n8n. À chaque fois qu'un agent IA ou qu'un scanner termine une sous-tâche, le backend émet un événement `POST update-status` intercepté dynamiquement par le tableau de bord.
+| Technologie | Rôle |
+|---|---|
+| **React.js** | Framework frontend — composants, routing, state management |
+| **Next.js** | Rendu côté serveur et gestion des routes API |
+| **Tailwind CSS** | Styling et design de l'interface |
+| **WebSocket / Polling** | Suivi en temps réel des étapes du pipeline n8n |
+| **Recharts** | Graphiques interactifs (Binary Analysis) |
+| **Axios** | Communication avec le backend n8n et MobSF |
 
-### 27.2 Fonctionnalités Principales Détaillées
+### Fonctionnement
 
-* **Zone de Dépôt Intuitive (Drag & Drop UI) :** Une zone de téléversement réactive dotée de contrôles de types de fichiers. Elle rejette instantanément les extensions non conformes à la volée et passe au statut visuel « Prêt à scanner » dès la validation du binaire Android.
-* **Pipeline de Suivi Granulaire :** Une barre de progression globale (`25%`, `50%`, `75%`, `100%`) couplée à un suivi de statut pas-à-pas pour isoler l'état de chaque composant du pipeline :
-  * `Upload APK` : Suivi du transfert initial vers l'environnement d'automatisation.
-  * `MobSF Scanner` : Phase d'analyse statique et d'extraction du manifeste.
-  * `AI Agents (Parallel)` : Phase de traitement cognitif et d'audit de code par l'essaim d'agents.
-  * `Merge PDF (Gotenberg)` : Compilation finale des rapports d'audit en un livrable unique.
-* **Console de Logs Asynchrones (Live Logging Engine) :** Une boîte de dialogue intégrée qui affiche en temps réel les journaux d'activité bruts du serveur (horodatés au format ISO 8601). Cela permet à l'auditeur de valider les étapes d'interception et de déboguer les flux n8n directement depuis l'interface web.
+L'interface React communique directement avec le workflow **n8n** via des appels HTTP. 
+Lorsqu'un APK est déposé, l'application envoie le fichier vers **Google Drive**, 
+déclenche automatiquement le pipeline n8n, puis interroge le backend en temps réel 
+pour afficher la progression de chaque nœud — Upload, MobSF Scanner, AI Agents, 
+et génération PDF via Gotenberg.
 
-### 27.3 Captures d'Écran et Expérience Utilisateur
+Les résultats de l'analyse sont récupérés et affichés dans des vues dédiées : 
+permissions du Manifest, findings binaires, résultats IA avec mapping MASVS, 
+et téléchargement du rapport PDF final.
 
-Voici le parcours utilisateur type au sein de l'application web de **MobAuditFlow** :
+MobAuditFlow intègre une interface web personnalisée permettant de lancer des scans APK, suivre le pipeline n8n en temps réel, consulter les résultats enrichis par l'IA, et télécharger le rapport PDF final — le tout directement depuis le navigateur, sans outil externe.
 
-#### A. Écran d'accueil et Hub de dépôt
-L'interface d'accueil invite l'utilisateur à initier l'analyse dans un environnement sécurisé et épuré.
-<div align="center">
-  <img width="90%" alt="MobAuditFlow - Formulaire d'upload et Hub de Scan" src="https://github.com/user-attachments/assets/1a89a798-039d-489e-8895-44ae68e611cb" />
-  <p><em>Figure 15 — Interface principale sécurisée pour le dépôt et l'initialisation des fichiers APK.</em></p>
-</div>
+---
 
-<br>
+### 27.1 Vue Manifest & Permissions
 
-#### B. Sélection du package binaire cible
-Sélection à chaud d'une application Android vulnérable (ex: *UnCrackable-Level3.apk* ou *DivaApplication.apk*) avant soumission au pipeline.
-<div align="center">
-  <img width="90%" alt="MobAuditFlow - Boîte de dialogue de sélection de l'APK" src="https://github.com/user-attachments/assets/e44a09ea-4e80-4557-b247-ca3420264916" />
-  <p><em>Figure 16 — Sélection locale de l'application cible via le gestionnaire de fichiers intégré.</em></p>
-</div>
+L'onglet **Manifest** liste toutes les permissions déclarées dans `AndroidManifest.xml` avec leur niveau de criticité (info / medium / high). Le **Raw Manifest** est affiché en JSON pour une inspection technique complète.
 
-<br>
+<img width="1282" height="680" alt="webapp-manifest-permissions" src="https://github.com/user-attachments/assets/d7609e0f-fb26-4705-ac37-726b12c4e241" />
 
-#### C. Console de supervision et d'écoute en direct
-Supervision active d'une session d'audit (UUID de workflow visible). On y observe la progression fixée à 25% lors de l'upload et le stream de logs interceptant le callback de n8n.
-<div align="center">
-  <img width="90%" alt="MobAuditFlow - Suivi dynamique du pipeline et console de logs" src="https://github.com/user-attachments/assets/a76744de-85a8-496a-a405-9639e13c8e69" />
-  <p><em>Figure 17 — Console d'exécution en temps réel traquant l'état d'avancement et la réception des notifications asynchrones.</em></p>
-</div>
+*Figure 15 — Suivi du pipeline n8n (vue compacte) — Upload APK terminé, étapes suivantes en attente.*  
 
-### 27.4 Stack Technique du Frontend
+---
 
-Pour garantir des performances optimales et une réactivité instantanée, la couche Frontend repose sur les technologies suivantes :
+### 27.2 Suivi du Pipeline n8n — Vue Détaillée
 
-* **Framework Principal :** React.js / Next.js (Architecture basée sur les composants) configuré nativement en mode sombre (*Dark Mode*) pour un confort visuel typique des outils SecOps.
-* **Moteur de Style :** Tailwind CSS pour une interface entièrement *responsive*, s'adaptant de manière fluide aux écrans de monitoring comme aux ordinateurs portables d'ingénieurs.
-* **Gestionnaire d'Upload :** Composant Dropzone doué d'écouteurs d'événements JavaScript natifs (`DragOver`, `Drop`) interfaçé de façon transparente avec l'API Google Drive pour la persistance immédiate du fichier.
-* **Couche Réseau :** Client asynchrone basé sur l'API Fetch / Axios gérant les requêtes non-bloquantes vers les points d'entrée de n8n et mettant à jour dynamiquement le cycle de vie de l'UI selon les états reçus (`running`, `success`, `error`).
+Une fois le scan lancé, l'interface affiche l'avancement de chaque étape avec un panneau **Live Logs** en direct.
+
+| Étape | Description |
+|---|---|
+| **Upload APK** | Envoi du fichier APK vers Google Drive |
+| **MobSF Scanner** | Lancement de l'analyse statique |
+| **AI Agents (Parallel)** | Analyse multi-agents IA en parallèle |
+| **Merge, PDF (Gotenberg)** | Génération et envoi automatique du rapport |
+
+<img width="1311" height="768" alt="webapp-pipeline-detail" src="https://github.com/user-attachments/assets/b3bee430-b4ea-4936-82ef-b3ab0af54e8d" />
+
+*Figure 16 —Vue Manifest & Permissions : liste des permissions avec leur criticité et Raw Manifest JSON.*      
+
+---
+
+### 27.3 Suivi du Pipeline n8n — Vue Compacte
+
+Vue compacte du pipeline montrant l'état de chaque nœud (En cours / En attente / Terminé).
+
+<img width="1234" height="642" alt="webapp-pipeline-compact" src="https://github.com/user-attachments/assets/975fadc7-3e28-4a35-9119-62c8d4c23f98" />
+
+*Figure 17 — Suivi du pipeline n8n avec Live Logs — statut global : running, progression : 25%.*
+
+---
+
+### 27.4 Page d'Accueil — Upload APK
+
+L'utilisateur dépose ou sélectionne un fichier APK via glisser-déposer ou le bouton **"Sélectionner un fichier"**. Le scan est lancé via **"Lancer le scan"**.
+
+<img width="1286" height="690" alt="webapp-home-upload" src="https://github.com/user-attachments/assets/d52bb3d3-0ceb-4c61-bd88-92b785ecd3da" />
+
+*Figure 18 — Vue Overview : tableau de bord des résultats avec score de sécurité global.*
+
+---
+
+### 27.5 Vue Résultats — Overview
+
+Une fois le scan terminé, la page affiche :
+- Le **package** de l'application analysée
+- La **version** et le **score de sécurité global** (72 / 100)
+- Les **permissions sensibles** détectées
+- Le **résumé des résultats** : état, rapport PDF, taille d'analyse
+
+<img width="1600" height="932" alt="webapp-overview-results" src="https://github.com/user-attachments/assets/b22ad6dc-adc2-4b3e-9634-aa911cf5832b" />
+
+*Figure 19 — Page d'accueil MobAuditFlow — zone de dépôt APK et déclenchement du scan.*
+
+---
+
+### 27.6 Vue AI Findings
+
+L'onglet **AI Findings** affiche les résultats enrichis par les agents IA :
+- Mapping automatique vers les contrôles **OWASP MASVS**
+- Niveau de sévérité par finding (High / Medium / Low)
+- Recommandations de remédiation contextualisées
+
+<img width="1600" height="878" alt="webapp-ai-findings" src="https://github.com/user-attachments/assets/63757d76-a43a-4ac1-ab2b-bf1eae560de3" />
+
+*Figure 20 — Vue AI Findings : résultats enrichis par les agents IA avec mapping MASVS automatique.*
+
+---
+
+### 27.7 Vue Binary Analysis
+
+L'onglet **Binary** présente une analyse visuelle des findings binaires par niveau de criticité sous forme de graphique à barres.
+
+<img width="1600" height="742" alt="webapp-binary-analysis" src="https://github.com/user-attachments/assets/b8cc702a-d8ab-4f03-8557-888200e8486a" />
+
+*Figure 21 — Vue Binary Analysis : distribution des findings par criticité (High / Medium / Low).*
+
+---
+
+### 27.8 Sélection du Fichier APK
+
+L'interface propose un sélecteur de fichiers natif. Plusieurs APK de test sont supportés : `UnCrackable-Level1.apk`, `DivaApplication.apk`, `UnCrackable-Level3.apk`.
+
+<img width="1600" height="831" alt="webapp-apk-selector" src="https://github.com/user-attachments/assets/7da5d5c9-5a9b-4892-981f-dc401948b241" />
+
+*Figure 22 — Sélecteur de fichiers APK — choix de l'application à analyser.*
+
+---
+
+### 27.9 Vue PDF Report — Téléchargement
+
+L'onglet **PDF Report** permet de télécharger le rapport PDF généré automatiquement par **Gotenberg**.
+
+<img width="1600" height="781" alt="webapp-pdf-download" src="https://github.com/user-attachments/assets/36fa9956-c1bf-4747-9fa4-0c3aaf7fd8a5" />
+
+*Figure 23 — Vue PDF Report : téléchargement du rapport d'audit PDF généré par Gotenberg.*
+
+---
+
+### 27.10 Résumé des Fonctionnalités Web
+
+| Fonctionnalité | Description |
+|---|---|
+| **Upload APK** | Glisser-déposer ou sélection manuelle du fichier APK |
+| **Lancer le scan** | Déclenchement automatique du pipeline n8n complet |
+| **Suivi en temps réel** | Progression par étape + Live Logs remontés par n8n |
+| **Overview** | Score de sécurité global, permissions sensibles, résumé |
+| **Manifest** | Permissions détaillées par criticité + Raw Manifest JSON |
+| **Binary Analysis** | Graphique des findings binaires par criticité |
+| **AI Findings** | Résultats enrichis par les agents IA + mapping MASVS |
+| **PDF Report** | Téléchargement du rapport PDF final généré par Gotenberg |
+
 
 28\. Organisation des Dossiers
 ------------------------------
