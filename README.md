@@ -4,9 +4,9 @@ Plateforme d’Audit Automatisé Mobile basée sur OWASP MASVS / MASTG et Intell
 ===============================================================================================
 
 MobAuditFlow
-------------
 
-* * *
+
+
 
 <img width="1600" height="983" alt="System_architecture_and_workflow_diagram" src="https://github.com/user-attachments/assets/2fa895c1-9ede-4e83-8a75-de3bdde28e31" />
 
@@ -267,6 +267,7 @@ Les documents OWASP sont indexés dans ChromaDB.
 ### 14.2 Embeddings Utilisés
 
 nomic-embed-text
+
 mxbai-embed-large
 
 * * *
@@ -410,7 +411,7 @@ Le principal APK testé est :
 
 OWASP UnCrackable-Level2
 
-### 25.1 Vulnérabilités Observées
+### 24.1 Vulnérabilités Observées
 
 *   Root Detection ;
 *   Debug Detection ;
@@ -467,9 +468,9 @@ et téléchargement du rapport PDF final.
 
 MobAuditFlow intègre une interface web personnalisée permettant de lancer des scans APK, suivre le pipeline n8n en temps réel, consulter les résultats enrichis par l'IA, et télécharger le rapport PDF final — le tout directement depuis le navigateur, sans outil externe.
 
----
+----
 
-### 27.1 Vue Manifest & Permissions
+### 26.1 Vue Manifest & Permissions
 
 L'onglet **Manifest** liste toutes les permissions déclarées dans `AndroidManifest.xml` avec leur niveau de criticité (info / medium / high). Le **Raw Manifest** est affiché en JSON pour une inspection technique complète.
 
@@ -479,7 +480,7 @@ L'onglet **Manifest** liste toutes les permissions déclarées dans `AndroidMani
 
 ---
 
-### 27.2 Suivi du Pipeline n8n — Vue Détaillée
+### 26.2 Suivi du Pipeline n8n — Vue Détaillée
 
 Une fois le scan lancé, l'interface affiche l'avancement de chaque étape avec un panneau **Live Logs** en direct.
 
@@ -496,7 +497,7 @@ Une fois le scan lancé, l'interface affiche l'avancement de chaque étape avec 
 
 ---
 
-### 27.3 Suivi du Pipeline n8n — Vue Compacte
+### 26.3 Suivi du Pipeline n8n — Vue Compacte
 
 Vue compacte du pipeline montrant l'état de chaque nœud (En cours / En attente / Terminé).
 
@@ -506,7 +507,7 @@ Vue compacte du pipeline montrant l'état de chaque nœud (En cours / En attente
 
 ---
 
-### 27.4 Page d'Accueil — Upload APK
+### 26.4 Page d'Accueil — Upload APK
 
 L'utilisateur dépose ou sélectionne un fichier APK via glisser-déposer ou le bouton **"Sélectionner un fichier"**. Le scan est lancé via **"Lancer le scan"**.
 
@@ -516,7 +517,7 @@ L'utilisateur dépose ou sélectionne un fichier APK via glisser-déposer ou le 
 
 ---
 
-### 27.5 Vue Résultats — Overview
+### 26.5 Vue Résultats — Overview
 
 Une fois le scan terminé, la page affiche :
 - Le **package** de l'application analysée
@@ -530,7 +531,7 @@ Une fois le scan terminé, la page affiche :
 
 ---
 
-### 27.6 Vue AI Findings
+### 26.7 Vue AI Findings
 
 L'onglet **AI Findings** affiche les résultats enrichis par les agents IA :
 - Mapping automatique vers les contrôles **OWASP MASVS**
@@ -543,7 +544,7 @@ L'onglet **AI Findings** affiche les résultats enrichis par les agents IA :
 
 ---
 
-### 27.7 Vue Binary Analysis
+### 26.8 Vue Binary Analysis
 
 L'onglet **Binary** présente une analyse visuelle des findings binaires par niveau de criticité sous forme de graphique à barres.
 
@@ -553,7 +554,7 @@ L'onglet **Binary** présente une analyse visuelle des findings binaires par niv
 
 ---
 
-### 27.8 Sélection du Fichier APK
+### 26.9 Sélection du Fichier APK
 
 L'interface propose un sélecteur de fichiers natif. Plusieurs APK de test sont supportés : `UnCrackable-Level1.apk`, `DivaApplication.apk`, `UnCrackable-Level3.apk`.
 
@@ -563,7 +564,7 @@ L'interface propose un sélecteur de fichiers natif. Plusieurs APK de test sont 
 
 ---
 
-### 27.9 Vue PDF Report — Téléchargement
+### 26.10 Vue PDF Report — Téléchargement
 
 L'onglet **PDF Report** permet de télécharger le rapport PDF généré automatiquement par **Gotenberg**.
 
@@ -573,7 +574,7 @@ L'onglet **PDF Report** permet de télécharger le rapport PDF généré automat
 
 ---
 
-### 27.10 Résumé des Fonctionnalités Web
+### 26.11 Résumé des Fonctionnalités Web
 
 | Fonctionnalité | Description |
 |---|---|
@@ -586,11 +587,12 @@ L'onglet **PDF Report** permet de télécharger le rapport PDF généré automat
 | **AI Findings** | Résultats enrichis par les agents IA + mapping MASVS |
 | **PDF Report** | Téléchargement du rapport PDF final généré par Gotenberg |
 
+* * *
 
 28\. Organisation des Dossiers
 ------------------------------
 
-## 28. Organisation des Dossiers
+
 
 ```text
 /project
