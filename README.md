@@ -8,7 +8,8 @@ MobAuditFlow
 
 * * *
 
-<img width="1194" height="687" alt="overview-banner" src="https://github.com/user-attachments/assets/af4819b9-d3f8-47ac-aa30-e07ef5526c80" />
+<img width="1600" height="983" alt="System_architecture_and_workflow_diagram" src="https://github.com/user-attachments/assets/2fa895c1-9ede-4e83-8a75-de3bdde28e31" />
+
 
 
 * * *
