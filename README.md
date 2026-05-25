@@ -444,6 +444,73 @@ Le projet suit une approche modulaire et incrémentale.
 *   Développement collaboratif.
 
 * * *
+* * *
+
+27. Interface Application Web (Web App Dashboard)
+--------------------------------------------------
+
+Pour démocratiser l'accès au pipeline d'audit et offrir une expérience utilisateur moderne et fluide, **MobAuditFlow** intègre une application web (Frontend) au design épuré *Cybersecurity-ready*. Conçue en mode sombre, cette interface unifiée sert de tour de contrôle asynchrone permettant aux auditeurs et aux développeurs d'interagir directement avec la plateforme sans aucune manipulation de scripts en ligne de commande.
+
+### 27.1 Architecture et Cinématique des Données
+
+L'application web ne se contente pas d'être une simple vitrine graphique ; elle agit comme un client réactif synchronisé par événements avec le serveur d'orchestration n8n.
+[Utilisateur] --- (Dépose l'APK) ---> [Frontend Dropzone]
+|
+(Requête POST HTTP)
+v
+[Dashboard Live] <-- (Callback State) <-- [Webhook n8n]
+Lorsqu'une analyse est lancée, l'interface orchestre les flux suivants :
+1. **Payload Transmission :** Le fichier binaire `.apk` est intercepté par le client et poussé de manière sécurisée vers l'infrastructure de stockage (Google Drive API).
+2. **Session Initialization :** Un identifiant unique de session de scan (UUID) est généré en corrélation directe avec l'ID d'exécution du workflow n8n.
+3. **Event Polling / Callbacks :** Le frontend se met à l'écoute des points d'entrée (Webhooks) de n8n. À chaque fois qu'un agent IA ou qu'un scanner termine une sous-tâche, le backend émet un événement `POST update-status` intercepté dynamiquement par le tableau de bord.
+
+### 27.2 Fonctionnalités Principales Détaillées
+
+* **Zone de Dépôt Intuitive (Drag & Drop UI) :** Une zone de téléversement réactive dotée de contrôles de types de fichiers. Elle rejette instantanément les extensions non conformes à la volée et passe au statut visuel « Prêt à scanner » dès la validation du binaire Android.
+* **Pipeline de Suivi Granulaire :** Une barre de progression globale (`25%`, `50%`, `75%`, `100%`) couplée à un suivi de statut pas-à-pas pour isoler l'état de chaque composant du pipeline :
+  * `Upload APK` : Suivi du transfert initial vers l'environnement d'automatisation.
+  * `MobSF Scanner` : Phase d'analyse statique et d'extraction du manifeste.
+  * `AI Agents (Parallel)` : Phase de traitement cognitif et d'audit de code par l'essaim d'agents.
+  * `Merge PDF (Gotenberg)` : Compilation finale des rapports d'audit en un livrable unique.
+* **Console de Logs Asynchrones (Live Logging Engine) :** Une boîte de dialogue intégrée qui affiche en temps réel les journaux d'activité bruts du serveur (horodatés au format ISO 8601). Cela permet à l'auditeur de valider les étapes d'interception et de déboguer les flux n8n directement depuis l'interface web.
+
+### 27.3 Captures d'Écran et Expérience Utilisateur
+
+Voici le parcours utilisateur type au sein de l'application web de **MobAuditFlow** :
+
+#### A. Écran d'accueil et Hub de dépôt
+L'interface d'accueil invite l'utilisateur à initier l'analyse dans un environnement sécurisé et épuré.
+<div align="center">
+  <img width="90%" alt="MobAuditFlow - Formulaire d'upload et Hub de Scan" src="https://github.com/user-attachments/assets/1a89a798-039d-489e-8895-44ae68e611cb" />
+  <p><em>Figure 15 — Interface principale sécurisée pour le dépôt et l'initialisation des fichiers APK.</em></p>
+</div>
+
+<br>
+
+#### B. Sélection du package binaire cible
+Sélection à chaud d'une application Android vulnérable (ex: *UnCrackable-Level3.apk* ou *DivaApplication.apk*) avant soumission au pipeline.
+<div align="center">
+  <img width="90%" alt="MobAuditFlow - Boîte de dialogue de sélection de l'APK" src="https://github.com/user-attachments/assets/e44a09ea-4e80-4557-b247-ca3420264916" />
+  <p><em>Figure 16 — Sélection locale de l'application cible via le gestionnaire de fichiers intégré.</em></p>
+</div>
+
+<br>
+
+#### C. Console de supervision et d'écoute en direct
+Supervision active d'une session d'audit (UUID de workflow visible). On y observe la progression fixée à 25% lors de l'upload et le stream de logs interceptant le callback de n8n.
+<div align="center">
+  <img width="90%" alt="MobAuditFlow - Suivi dynamique du pipeline et console de logs" src="https://github.com/user-attachments/assets/a76744de-85a8-496a-a405-9639e13c8e69" />
+  <p><em>Figure 17 — Console d'exécution en temps réel traquant l'état d'avancement et la réception des notifications asynchrones.</em></p>
+</div>
+
+### 27.4 Stack Technique du Frontend
+
+Pour garantir des performances optimales et une réactivité instantanée, la couche Frontend repose sur les technologies suivantes :
+
+* **Framework Principal :** React.js / Next.js (Architecture basée sur les composants) configuré nativement en mode sombre (*Dark Mode*) pour un confort visuel typique des outils SecOps.
+* **Moteur de Style :** Tailwind CSS pour une interface entièrement *responsive*, s'adaptant de manière fluide aux écrans de monitoring comme aux ordinateurs portables d'ingénieurs.
+* **Gestionnaire d'Upload :** Composant Dropzone doué d'écouteurs d'événements JavaScript natifs (`DragOver`, `Drop`) interfaçé de façon transparente avec l'API Google Drive pour la persistance immédiate du fichier.
+* **Couche Réseau :** Client asynchrone basé sur l'API Fetch / Axios gérant les requêtes non-bloquantes vers les points d'entrée de n8n et mettant à jour dynamiquement le cycle de vie de l'UI selon les états reçus (`running`, `success`, `error`).
 
 28\. Organisation des Dossiers
 ------------------------------
