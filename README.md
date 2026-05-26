@@ -471,9 +471,9 @@ MobAuditFlow intègre une interface web personnalisée permettant de lancer des 
 
 L'onglet **Manifest** liste toutes les permissions déclarées dans `AndroidManifest.xml` avec leur niveau de criticité (info / medium / high). Le **Raw Manifest** est affiché en JSON pour une inspection technique complète.
 
-<img width="1282" height="680" alt="webapp-manifest-permissions" src="https://github.com/user-attachments/assets/d7609e0f-fb26-4705-ac37-726b12c4e241" />
+<img width="1311" height="768" alt="webapp-pipeline-detail" src="https://github.com/user-attachments/assets/b3bee430-b4ea-4936-82ef-b3ab0af54e8d" />
 
-*Figure 15 — Suivi du pipeline n8n (vue compacte) — Upload APK terminé, étapes suivantes en attente.*  
+*Figure 16 —Vue Manifest & Permissions : liste des permissions avec leur criticité et Raw Manifest JSON.* 
 
 ---
 
@@ -488,9 +488,11 @@ Une fois le scan lancé, l'interface affiche l'avancement de chaque étape avec 
 | **AI Agents (Parallel)** | Analyse multi-agents IA en parallèle |
 | **Merge, PDF (Gotenberg)** | Génération et envoi automatique du rapport |
 
-<img width="1311" height="768" alt="webapp-pipeline-detail" src="https://github.com/user-attachments/assets/b3bee430-b4ea-4936-82ef-b3ab0af54e8d" />
+<img width="1282" height="680" alt="webapp-manifest-permissions" src="https://github.com/user-attachments/assets/d7609e0f-fb26-4705-ac37-726b12c4e241" />
 
-*Figure 16 —Vue Manifest & Permissions : liste des permissions avec leur criticité et Raw Manifest JSON.*      
+*Figure 15 — Suivi du pipeline n8n (vue compacte) — Upload APK terminé, étapes suivantes en attente.*  
+
+     
 
 ---
 
@@ -508,9 +510,10 @@ Vue compacte du pipeline montrant l'état de chaque nœud (En cours / En attente
 
 L'utilisateur dépose ou sélectionne un fichier APK via glisser-déposer ou le bouton **"Sélectionner un fichier"**. Le scan est lancé via **"Lancer le scan"**.
 
-<img width="1286" height="690" alt="webapp-home-upload" src="https://github.com/user-attachments/assets/d52bb3d3-0ceb-4c61-bd88-92b785ecd3da" />
+<img width="1600" height="932" alt="webapp-overview-results" src="https://github.com/user-attachments/assets/b22ad6dc-adc2-4b3e-9634-aa911cf5832b" />
 
-*Figure 18 — Vue Overview : tableau de bord des résultats avec score de sécurité global.*
+*Figure 19 — Page d'accueil MobAuditFlow — zone de dépôt APK et déclenchement du scan.*
+
 
 ---
 
@@ -522,9 +525,10 @@ Une fois le scan terminé, la page affiche :
 - Les **permissions sensibles** détectées
 - Le **résumé des résultats** : état, rapport PDF, taille d'analyse
 
-<img width="1600" height="932" alt="webapp-overview-results" src="https://github.com/user-attachments/assets/b22ad6dc-adc2-4b3e-9634-aa911cf5832b" />
+<img width="1286" height="690" alt="webapp-home-upload" src="https://github.com/user-attachments/assets/d52bb3d3-0ceb-4c61-bd88-92b785ecd3da" />
 
-*Figure 19 — Page d'accueil MobAuditFlow — zone de dépôt APK et déclenchement du scan.*
+*Figure 18 — Vue Overview : tableau de bord des résultats avec score de sécurité global.*
+
 
 ---
 
