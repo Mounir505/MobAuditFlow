@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/25039342-d280-4197-9ae7-7ffe8927cfef
+
  README - MobAuditFlow
 
 Plateforme d’Audit Automatisé Mobile basée sur OWASP MASVS / MASTG et Intelligence Artificielle
@@ -792,6 +796,10 @@ La vidéo illustre les différentes étapes du pipeline :
 
 
 https://github.com/user-attachments/assets/5ba25bdb-37fd-4192-9755-ba010d06180e
+
+
+
+https://github.com/user-attachments/assets/14711bce-8e2e-4971-8180-f7c324822401
 
 
 
